@@ -12,6 +12,9 @@ gem "sprockets-rails"
 # Use pg
 gem "pg"
 
+# Use devise
+gem 'devise'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
