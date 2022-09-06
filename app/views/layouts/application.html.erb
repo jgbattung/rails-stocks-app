@@ -13,15 +13,13 @@
 
   <body>
 
-    <% if notice %>
-        <p class="notice"><%= notice %></p>
-    <% end %>
+    <div class='container'>
+      <% if notice %>
+        <%= render "layouts/alerts" %>
+      <% end %>
 
-    <% if alert %>
-        <p class="alert"><%= alert %></p>
-    <% end %>
-
-    <%= yield %>
+      <%= yield %>
+    </div>
 
 
 
