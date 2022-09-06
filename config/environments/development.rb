@@ -80,11 +80,13 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
   :address => 'smtp.gmail.com',
-  :port => 601,
+  :port => 587,
   :user_name => 'jirehbattung.dev@gmail.com',
-  :password => 'qyhl zwtp ataj kwrz',
+  :password => 'qyhlzwtpatajkwrz',
   :authentication => 'plain',
   # :enable_starttls_auto => true
   }
+
+  config.action_mailer.raise_delivery_errors = true
 
 end
