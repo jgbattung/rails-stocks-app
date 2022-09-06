@@ -15,6 +15,9 @@ gem "pg"
 # Use devise
 gem 'devise'
 
+# Use IEX
+gem 'iex-ruby-client'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
