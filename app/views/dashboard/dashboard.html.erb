@@ -1,1 +1,11 @@
 <h1>TRADER DASHBOARD</h1>
+<p>Welcome back, <%= current_user.email %>!</p>
+
+<ul>
+    <li>
+        <%= link_to "Stocks", stocks_path %>
+    </li>
+    <li>
+        <%= link_to "My Portfolio", stocks_path %>
+    </li>
+</ul>

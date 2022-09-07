@@ -1,4 +1,5 @@
 class StocksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_stock, only: %i[ show edit update destroy ]
 
   # GET /stocks or /stocks.json
@@ -10,7 +11,9 @@ class StocksController < ApplicationController
   def show
   end
 
-  # def get_stock
+  def get_stock
+    @client = Stock.client
+  end
 
   # GET /stocks/new
   def new
