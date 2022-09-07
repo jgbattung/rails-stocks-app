@@ -10,6 +10,8 @@ class StocksController < ApplicationController
   def show
   end
 
+  # def get_stock
+
   # GET /stocks/new
   def new
     @stock = Stock.new
