@@ -5,4 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
     has_many :user_roles
     has_many :roles, through: :user_roles
+
+    enum role: [:trader, :admin]
+    after_initialize :set_default_role, :if => :new_record?
+
+    def set_default_role
+        self.role ||= :trader
+    end
 end
