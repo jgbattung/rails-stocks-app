@@ -1,4 +1,5 @@
 class Stock < ApplicationRecord
+    has_and_belongs_to_many :users
 
     def self.client
         client = IEX::Api::Client.new(

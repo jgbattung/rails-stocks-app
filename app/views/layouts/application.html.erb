@@ -16,10 +16,11 @@
     <%= render 'home/navbar' %>
 
     <div class='container'>
-      <% if notice %>
-        <%= render "layouts/alerts" %>
+      <%# <% if notice
+        <%= render "layouts/alerts"
       <% end %>
 
+      <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
       <%= yield %>

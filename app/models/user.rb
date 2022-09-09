@@ -6,11 +6,11 @@ class User < ApplicationRecord
     has_many :user_roles
     has_many :roles, through: :user_roles
 
-    after_initialize :set_default_role, :if => :new_record?
+    # after_initialize :set_default_role, 
 
-    after_create :add
+    after_create :set_default_role, :if => :new_record?
 
     def set_default_role
-        self.role = 'trader'
+        self.role = 'trader' unless role = 'admin'
     end
 end
