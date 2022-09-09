@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
     def after_sign_in_path_for(user)
-        if current_user.has_role? :trader
+        if current_user.role == 'trader'
             dashboard_path
-        elsif current_user.has_role? :admin
+        elsif current_user.role == 'admin'
             panel_path
         else
             new_user_registration_path
