@@ -3,14 +3,15 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-    has_many :user_roles
-    has_many :roles, through: :user_roles
+  # has_many :user_roles
+  # has_many :roles, through: :user_roles
+  has_and_belongs_to_many :stocks
 
-    # after_initialize :set_default_role, 
+  # after_initialize :set_default_role, 
 
-    after_create :set_default_role, :if => :new_record?
+  after_create :set_default_role
 
-    def set_default_role
-        self.role = 'trader' unless role = 'admin'
-    end
+  def set_default_role
+    self.role = 'trader' if email != 'admin@trader.com'
+  end
 end
