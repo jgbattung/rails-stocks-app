@@ -2,8 +2,30 @@
 
 <h1>Stocks</h1>
 
-<%= Stock.client.quote('BBBY').company_name %>
-<%= @aapl %>
+<%#<%= Stock.client.quote('BBBY').company_name
+<%= Stock. %>
+
+<h2>Top 10 Stocks by Market Cap</h2>
+
+<%#<table>
+  <thead>
+    <tr>
+      <th>
+    </tr>
+  </thead>
+</table>%>
+
+<% Stock.all.each do |stock| %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= stock.company_code %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= stock.company_name %></h6>
+      <p class="card-text">$<%= stock.latest_price %> | <%= stock.change_percent_s %> </p>
+    </div>
+  </div>
+<% end %>
+
+
 
 <%# <div id="stocks">
   <% @stocks.each do |stock|
