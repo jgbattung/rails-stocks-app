@@ -1,13 +1,54 @@
 <h1>TRADERS</h1>
+<br />
+<br />
 
+<h3>Pending Traders</h3>
 <table class="table">
     <thead>
-        <tr colspan="7">
+        <tr colspan="6">
             <th>ID</th>
             <th>Email</th>
             <th>Role</th>
             <th>Status</th>
-            <th colspan="3"></th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        <% @users.each do |user| %>
+            <% if user.role == 'trader' && user.approved == false %>
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.role %></td>
+                    <% if user.approved == true %>
+                        <td>Approved</td>
+                    <% elsif %>
+                        <td>Pending Approval</td>
+                    <% end %>
+                    <td><%= link_to "Approve / Edit Trader", edit_user_path(user) %></td>
+                    <td><%= link_to "Show", user_path(user) %></td>
+                </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
+
+<br />
+<br />
+<br />
+<br />
+
+<h3>All Traders</h3>
+<table class="table">
+    <thead>
+        <tr colspan="6">
+            <th>ID</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th colspan="2"></th>
         </tr>
     </thead>
 
@@ -24,11 +65,14 @@
                     <% elsif %>
                         <td>Pending Approval</td>
                     <% end %>
-                    <td><%= link_to "Approve Trader", edit_user_path(user) %></td>
+                    <td><%= link_to "Edit Trader", edit_user_path(user) %></td>
                     <td><%= link_to "Show", user_path(user) %></td>
-                    <td><%= link_to "Edit", edit_user_path(user) %></td>
                 </tr>
             <% end %>
         <% end %>
     </tbody>
 </table>
+
+<%= link_to 'Back to Admin Panel', panel_path %>
+<br />
+<br />
