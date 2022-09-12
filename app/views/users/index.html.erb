@@ -6,6 +6,7 @@
             <th>ID</th>
             <th>Email</th>
             <th>Role</th>
+            <th>Status</th>
         </tr>
     </thead>
 
@@ -17,6 +18,11 @@
                     <td><%= user.id %></td>
                     <td><%= user.email %></td>
                     <td><%= user.role %></td>
+                    <% if user.approved == true %>
+                        <td>Approved</td>
+                    <% elsif %>
+                        <td>Pending Approval</td>
+                    <% end %>
                 </tr>
             <% end %>
         <% end %>
