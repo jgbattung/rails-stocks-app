@@ -1,6 +1,7 @@
 class StocksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_stock, only: %i[ show edit update destroy ]
+  # actions :all, except [:index, :show, :get_stock]
 
   # GET /stocks or /stocks.json
   def index
@@ -55,7 +56,7 @@ class StocksController < ApplicationController
 
   # DELETE /stocks/1 or /stocks/1.json
   def destroy
-    @stock.destroy
+      @stock.destroy
 
     respond_to do |format|
       format.html { redirect_to stocks_url, notice: "Stock was successfully destroyed." }
