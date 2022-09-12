@@ -1,0 +1,21 @@
+<h1>TRADER PROFILE</h1>
+
+<div id="<%= dom_id user %>">
+  
+  <p>
+    <strong>Email:</strong>
+    <%= user.email %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+      <% if user.approved == true %>
+        <p>Approved</p>
+      <% elsif %>
+        <p>Pending Approval</p>
+      <% end %>
+  </p>
+
+  <%= link_to 'Back to Traders', users_path %>
+
+</div>
