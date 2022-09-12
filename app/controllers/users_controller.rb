@@ -8,11 +8,7 @@ class UsersController < ApplicationController
     end
 
     def show
-    end
-
-    def correct_user
-      @user = current_user
-      redirect_to dashboard_path, notice: 'You are not authorized to view this page' unless @user.role == 'admin'
+      @user = User.find(params[:id])
     end
 
     def new
@@ -38,5 +34,27 @@ class UsersController < ApplicationController
             end
         end
     end
+
+    def update
+      @user = User.find(params[:id])
+      if @user.update(user_params)
+        redirect_to users_path, notice: 'User is now approved'
+      end
+    end
+
+    private
+
+      def correct_user
+        @user = current_user
+        redirect_to dashboard_path, notice: 'You are not authorized to view this page' unless @user.role == 'admin'
+      end
+
+      def set_user
+        @user = User.find(params[:id])
+      end
+
+      def user_params
+        params.require(:user).permit(:approved)
+      end
 
   end
