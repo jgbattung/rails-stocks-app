@@ -1,12 +1,18 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
     before_action :set_user, only: %i[ show edit update destroy ]
+    before_action :correct_user
 
     def index
         @users = User.all
     end
 
     def show
+    end
+
+    def correct_user
+      @user = current_user
+      redirect_to dashboard_path, notice: 'You are not authorized to view this page' unless @user.role == 'admin'
     end
 
     def new

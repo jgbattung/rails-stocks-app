@@ -1,1 +1,24 @@
-<h1>USERS</h1>
+<h1>TRADERS</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        <% @users.each do |user| %>
+            <% if user.role == 'trader' %>
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.role %></td>
+                </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
