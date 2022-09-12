@@ -9,6 +9,7 @@ class StocksController < ApplicationController
 
   # GET /stocks/1 or /stocks/1.json
   def show
+    @stock = Stock.find(params[:id])
   end
 
   def get_stock
