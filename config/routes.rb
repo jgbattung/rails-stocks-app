@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :stocks, only: [:index, :show, :get_stock]
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users
+  # , controllers: { registrations: "registrations" }
   # get 'home/index'
   root 'home#index'
   get '/dashboard' => 'dashboard#dashboard', as: 'dashboard' 
