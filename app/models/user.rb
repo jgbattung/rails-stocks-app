@@ -9,9 +9,13 @@ class User < ApplicationRecord
 
   # after_initialize :set_default_role, 
 
-  after_create :set_default_role
+  after_create :set_default_role, :set_default_approval
 
   def set_default_role
     self.role = 'trader' if email != 'admin@trader.com'
+  end
+
+  def set_default_approval
+    self.approved = 'false' unless role == 'admin'
   end
 end
