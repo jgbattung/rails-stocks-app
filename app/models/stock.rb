@@ -1,6 +1,8 @@
 class Stock < ApplicationRecord
     has_and_belongs_to_many :users
 
+    has_many :transactions
+
     def self.client
         client = IEX::Api::Client.new(
             publishable_token: 'pk_d7c9543c74524df2b712630b34f2cdb6',
