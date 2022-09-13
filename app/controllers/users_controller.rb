@@ -39,6 +39,9 @@ class UsersController < ApplicationController
     def update
       @user = User.find(params[:id])
       if @user.update(user_params)
+
+        ConfirmationMailer.with(user: @user).confirmation_email.deliver_later
+
         redirect_to users_path, notice: 'User is now approved'
       end
     end
@@ -55,7 +58,7 @@ class UsersController < ApplicationController
       end
 
       def user_params
-        params.require(:user).permit(:approved)
+        params.require(:user).permit(:email, :approved)
       end
 
   end
