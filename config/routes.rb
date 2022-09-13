@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :transactions
   resources :stocks, only: [:index, :show, :get_stock]
   devise_for :users
   # , controllers: { registrations: "registrations" }
