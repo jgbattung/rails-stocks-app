@@ -13,9 +13,9 @@ class StocksController < ApplicationController
     @stock = Stock.find(params[:id])
   end
 
-  def get_stock
-    @client = Stock.client
-  end
+  # def get_stock
+  #   @client = Stock.client
+  # end
 
   # GET /stocks/new
   def new

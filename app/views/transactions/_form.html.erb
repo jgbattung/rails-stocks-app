@@ -11,19 +11,21 @@
     </div>
   <% end %>
 
+  <p>You are <%= @user.email %></p> 
+
   <div>
     <%= form.label :stock_name, style: "display: block" %>
-    <%= form.text_field :stock_name %>
+    <%= form.text_field :stock_name, disabled: true, value: @stock.company_name %>
   </div>
 
   <div>
     <%= form.label :type, style: "display: block" %>
-    <%= form.text_field :type %>
+    <%= form.select :transaction_type, ['buy', 'sell'] %>
   </div>
 
   <div>
     <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, disabled: true, value: @stock.latest_price %>
   </div>
 
   <div>
@@ -32,13 +34,7 @@
   </div>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :stock_id, style: "display: block" %>
-    <%= form.number_field :stock_id %>
+    <%= form.hidden_field :stock_id, value: @stock.id %>
   </div>
 
   <div>

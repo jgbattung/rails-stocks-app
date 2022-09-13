@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_13_053459) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_13_123355) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_053459) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "stock_name"
-    t.string "type"
+    t.string "transaction_type"
     t.decimal "price"
     t.integer "shares"
     t.integer "user_id"

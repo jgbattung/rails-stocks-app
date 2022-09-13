@@ -22,6 +22,7 @@
       <h6 class="card-subtitle mb-2 text-muted"><%= stock.company_name %></h6>
       <p class="card-text">$<%= stock.latest_price %> | <%= stock.change_percent_s %> </p>
       <%= link_to "View stock", stock_path(stock) %>
+      <%= link_to "Trade", "/transactions/new?stock_id=#{stock.id}" %>
     </div>
   </div>
 <% end %>

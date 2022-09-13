@@ -1,18 +1,23 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_transaction, only: %i[ show edit update destroy ]
 
   # GET /transactions or /transactions.json
   def index
+    @user = current_user
     @transactions = Transaction.all
   end
 
   # GET /transactions/1 or /transactions/1.json
   def show
+    @user = current_user
   end
 
   # GET /transactions/new
   def new
+    @user = current_user
     @transaction = Transaction.new
+    @stock = Stock.find(params[:stock_id])
   end
 
   # GET /transactions/1/edit
@@ -22,6 +27,7 @@ class TransactionsController < ApplicationController
   # POST /transactions or /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
+    @transaction.user_id = current_user.id
 
     respond_to do |format|
       if @transaction.save
@@ -65,6 +71,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:stock_name, :type, :price, :shares, :user_id, :stock_id)
+      params.require(:transaction).permit(:stock_name, :transaction_type, :price, :shares, :user_id, :stock_id)
     end
 end
