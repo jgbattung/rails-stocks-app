@@ -1,3 +1,7 @@
 class Transaction < ApplicationRecord
-    belongs_to :stock
+	before_action :authenticate_user!
+
+  def index
+		@transactions = Transaction.all
+  end
 end
