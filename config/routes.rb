@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/dashboard' => 'dashboard#dashboard', as: 'dashboard' 
   get '/panel' => 'panel#panel', as: 'panel' 
   resources :users
+  get '/history' => 'history#history', as: 'history'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

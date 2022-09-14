@@ -6,6 +6,7 @@ class TransactionsController < ApplicationController
   def index
     # @user = current_user
     @transactions = Transaction.all
+    redirect_to stocks_path, notice: "You are not authorized to view this page" if current_user.role != 'admin'
     # @stock = Stock.find(params[:stock_id])
   end
 

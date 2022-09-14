@@ -1,32 +1,59 @@
 <div id="<%= dom_id transaction %>">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Stock</th>
+        <th>Transaction</th>
+        <th>Price</th>
+        <th>Shares</th>
+        <th>User</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= transaction.stock_name %></td>
+        <td><%= transaction.transaction_type %></td>
+        <td><%= transaction.price %></td>
+        <td><%= transaction.shares %></td>
+        <td><%= transaction.email %></td>
+        <td><%= link_to "Show this transaction", transaction %></td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <%#
   <p>
     <strong>Stock name:</strong>
-    <%= transaction.stock_name %>
+    <%= transaction.stock_name 
   </p>
 
   <p>
     <strong>Type:</strong>
-    <%= transaction.transaction_type %>
+    <%= transaction.transaction_type 
   </p>
 
   <p>
     <strong>Price:</strong>
-    <%= transaction.price %>
+    <%= transaction.price 
   </p>
 
   <p>
     <strong>Shares:</strong>
-    <%= transaction.shares %>
+    <%= transaction.shares 
   </p>
 
   <p>
     <strong>User:</strong>
-    <%= transaction.email %>
+    <%= transaction.email 
   </p>
 
   <p>
     <strong>Stock:</strong>
-    <%= transaction.stock_id %>
-  </p>
+    <%= transaction.stock_id 
+  </p> %>
 
 </div>
