@@ -16,7 +16,7 @@
         <% @transactions.each do |transaction| %>
 					<% if transaction.email == current_user.email %>
 						<tr>
-							<td><%= transaction.stock_name %></td>
+							<td><%= transaction.stock.company_name %></td>
 							<td><%= transaction.transaction_type %></td>
 							<td><%= transaction.price %></td>
 							<td><%= transaction.shares %></td>
