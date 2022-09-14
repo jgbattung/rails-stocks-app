@@ -4,7 +4,4 @@ class PortfolioController < ApplicationController
     def portfolio
         @transactions = Transaction.all
     end
-
-    def sell_stock
-    end
   end

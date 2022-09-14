@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_transaction, only: %i[ show update ]
+  before_action :set_transaction, only: %i[ show update destroy ]
 
   # GET /transactions or /transactions.json
   def index
@@ -71,7 +71,7 @@ class TransactionsController < ApplicationController
     @transaction.destroy
 
     respond_to do |format|
-      format.html { redirect_to transactions_url, notice: "Transaction was successfully destroyed." }
+      format.html { redirect_to portfolio_url, notice: "Stock was successfully sold." }
       format.json { head :no_content }
     end
   end

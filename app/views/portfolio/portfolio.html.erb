@@ -9,7 +9,7 @@
 			<h4><%= transaction.stock.company_name %> | <%= transaction.stock.change_percent_s %> </h4>
 			<p>Invested: <%= transaction.shares %> units @ <%= transaction.price %></p>
 			<p><b>Value: $<%= transaction.shares * transaction.price %></b></p>
-			<%= button_to "Sell", transaction_path(transaction.id), class: 'btn btn-danger' %>
+			<%= button_to "Sell", transaction_path(transaction.id), method: :delete, class: 'btn btn-danger' %>
 		</div>
 	<% end %>
 <% end %>
