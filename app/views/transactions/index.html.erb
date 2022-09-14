@@ -20,8 +20,7 @@
           <tr>
             <td><%= transaction.stock.company_name %></td>
             <td><%= transaction.transaction_type %></td>
-            <%#<td><%= transaction.stock.latest_price</td>%>
-            <td><%= transaction.latest_price %></td>
+            <td><%= transaction.price %></td>
             <td><%= transaction.shares %></td>
             <td><%= transaction.email %></td>
             <td><%= link_to "Show this transaction", transaction %></td>

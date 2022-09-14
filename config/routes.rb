@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get '/panel' => 'panel#panel', as: 'panel' 
   resources :users
   get '/history' => 'history#history', as: 'history'
-  get '/portfolio' => 'portfolio#portfolio', as: 'portfolio'
+  get '/portfolio' => 'portfolio#portfolio', as: 'portfolio' do
+    post :sell_stock
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

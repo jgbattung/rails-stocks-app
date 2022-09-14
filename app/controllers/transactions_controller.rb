@@ -18,6 +18,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/new
   def new
+    redirect_to stocks_path, notice: "You need an approved account to Trade" if current_user.approved == false
     @user = current_user
     @transaction = Transaction.new
     @stock = Stock.find(params[:stock_id])

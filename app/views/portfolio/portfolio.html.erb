@@ -1,1 +1,15 @@
 <h1>My Portfolio</h1>
+<br />
+<br />
+
+<% @transactions.each do |transaction| %>
+	<% if transaction.email == current_user.email %>
+		<div class="jumbotron mb-4">
+			<h1 class="display-4"><%= transaction.stock.company_code %></h1>
+			<h4><%= transaction.stock.company_name %> | <%= transaction.stock.change_percent_s %> </h4>
+			<p>Invested: <%= transaction.shares %> units @ <%= transaction.price %></p>
+			<p><b>Value: $<%= transaction.shares * transaction.price %></b></p>
+			<%= button_to "Sell", transaction_path(transaction.id), class: 'btn btn-danger' %>
+		</div>
+	<% end %>
+<% end %>
