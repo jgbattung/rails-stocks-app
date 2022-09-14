@@ -4,22 +4,22 @@ class TransactionsController < ApplicationController
 
   # GET /transactions or /transactions.json
   def index
-    @user = current_user
+    # @user = current_user
     @transactions = Transaction.all
     # @stock = Stock.find(params[:stock_id])
   end
 
   # GET /transactions/1 or /transactions/1.json
   def show
-    @user = current_user
+    # @user = current_user
     # @stock = Stock.find(params[:stock_id])
   end
 
   # GET /transactions/new
   def new
-    # @user = current_user
-    # @transaction = Transaction.new
-    # @stock = Stock.find(params[:stock_id])
+    @user = current_user
+    @transaction = Transaction.new
+    @stock = Stock.find(params[:stock_id])
   end
 
   # GET /transactions/1/edit
@@ -32,6 +32,7 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.user_id = current_user.id
+    @transaction.email = current_user.email
 
     respond_to do |format|
       if @transaction.save
@@ -75,6 +76,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:stock_name, :transaction_type, :price, :shares, :user_id, :stock_id)
+      params.require(:transaction).permit(:stock_name, :transaction_type, :price, :shares, :user_id, :stock_id, :email)
     end
 end
