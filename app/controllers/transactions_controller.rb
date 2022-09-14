@@ -23,7 +23,7 @@ class TransactionsController < ApplicationController
     @stock = Stock.find(params[:stock_id])
   end
 
-  # GET /transactions/1/edit
+# GET /transactions/1/edit
   def edit
     # @user = current_user
     # @stock = Stock.find(params[:stock_id])
@@ -31,9 +31,15 @@ class TransactionsController < ApplicationController
 
   # POST /transactions or /transactions.json
   def create
+    client = Stock.client
+
     @transaction = Transaction.new(transaction_params)
+    @stock = Stock.find(params[:transaction][:stock_id])
+    latest_price = client.quote(@stock.company_code)['latest_price']
     @transaction.user_id = current_user.id
     @transaction.email = current_user.email
+    # @transaction.company_name = @stock.company_name
+    @transaction.price = latest_price
 
     respond_to do |format|
       if @transaction.save
