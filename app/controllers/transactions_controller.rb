@@ -6,22 +6,26 @@ class TransactionsController < ApplicationController
   def index
     @user = current_user
     @transactions = Transaction.all
+    # @stock = Stock.find(params[:stock_id])
   end
 
   # GET /transactions/1 or /transactions/1.json
   def show
     @user = current_user
+    # @stock = Stock.find(params[:stock_id])
   end
 
   # GET /transactions/new
   def new
-    @user = current_user
-    @transaction = Transaction.new
-    @stock = Stock.find(params[:stock_id])
+    # @user = current_user
+    # @transaction = Transaction.new
+    # @stock = Stock.find(params[:stock_id])
   end
 
   # GET /transactions/1/edit
   def edit
+    # @user = current_user
+    # @stock = Stock.find(params[:stock_id])
   end
 
   # POST /transactions or /transactions.json
